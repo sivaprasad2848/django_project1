@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+</head>
+<body>
+    <form method="post" action="{% url 'insert_todo' %}">
+        {% csrf_token %}
+    <table align="center" cellpadding="10" cellspacing="10">
+        <tr>
+            <td>ToDoList</td>
+        </tr>
+        <tr>
+            <td><input type="text" name="task" placeholder="Enter Your Task"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Enter"></td>
+        </tr>
+    </table>
+    <table width="60%" align="center" border="1">
+        <tr>
+            <td>SlNo</td>
+            <td>TaskTitle</td>
+            <td>Operation</td>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.0 }}</td>
+            <td>{{ task.1 }}</td>
+            <td><a href="">Delete</a><a href="">Update</a></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="2">No tasks found</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </form>
+</body>
+</html>
