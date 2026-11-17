@@ -29,7 +29,7 @@
         <tr>
             <td>{{ task.0 }}</td>
             <td>{{ task.1 }}</td>
-            <td><a href="">Delete</a><a href="">Update</a></td>
+            <td><a href="{% url 'delete_todo' task.0 %}">Delete</a>/<a href="{% url 'edit_todo' task.0 %}">Edit</a>
         </tr>
         {% empty %}
         <tr>
